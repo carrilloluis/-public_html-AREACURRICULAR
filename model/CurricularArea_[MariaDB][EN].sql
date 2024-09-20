@@ -15,7 +15,7 @@ DELIMITER ;
 DROP TABLE IF EXISTS `CurricularAreaProposal_`;
 DELIMITER //
 CREATE TABLE IF NOT EXISTS `CurricularAreaProposal_` (
-  `id` CHAR(8) CHARACTER SET ascii NOT NULL PRIMARY KEY, -- COMMENT 'Identificador interno de una Asignautura para un Grado Académico en la Base de Datos'
+  `id` CHAR(36) CHARACTER SET ascii NOT NULL PRIMARY KEY, -- COMMENT 'Identificador interno de una Asignautura para un Grado Académico en la Base de Datos'
   `start_date` DATE NOT NULL, -- COMMENT 'Fecha inicial de vigencia'
   `level_id` CHAR(2) CHARACTER SET ascii NOT NULL, -- COMMENT Identificador PK del NIVEL ACADÉMICO, ejem: B0 // primaria, F0
   `grade_id` INTEGER UNSIGNED NOT NULL, -- COMMENT 'Identificador interno del grado',

@@ -10,8 +10,8 @@ define('SERVER_DB', 'localhost');
 define('PORT_DB', 3306);
 define('DATABASE_NAME', 't3st');
 define('DSN_DB', 'mysql:host=' . SERVER_DB . ';dbname=' . DATABASE_NAME . ';charset=utf8');
-define('USER_DB', 't3st');
-define('PASSWORD_DB', 't3st');
+define('USER_DB', 'admin');
+define('PASSWORD_DB', 'r00t');
 define('KEY_CRYPT', 'gHfKxh%zjqC7ZMKAcY@B(fC(aC0Opv9Q');
 define('STANDARD_HEADER', 'Content-Type: application/json; charset="UTF-8"');
 
@@ -58,10 +58,10 @@ Route::add('/AREACURRICULAR/v1/([a-zA-Z0-9]{2})/', function( $level_id )
 	* __Cadena de texto con la solicitud de datos__ (SQL String QUERY)
 	*/
 	$strQuery = "
-		SELECT C.`id` AS id, C.`Level` AS level, T.`name` AS name, C.`isActive` AS enable
-		FROM `CurricularArea` C
-		LEFT JOIN `TypeCourse` T ON C.`course_id`=T.`id`
-		WHERE C.`level`=UCASE(?) AND C.`isActive`=b'1' AND T.`isActive`=b'1';
+		SELECT C.`id` AS id, C.`level_id` AS level, T.`name` AS name, C.`is_active` AS enable
+		FROM `CurricularArea_` C
+		LEFT JOIN `TypeCourse_` T ON C.`course_id`=T.`id`
+		WHERE C.`level_id`=UCASE(?) AND C.`is_active`=b'1' AND T.`is_active`=b'1';
 	";
 
 	/**
@@ -111,10 +111,10 @@ Route::add('/AREACURRICULAR/v1/_/([a-zA-Z0-9]{2})/([0-9]{1,2})/', function( $lev
 	* __Cadena de texto con la solicitud de datos__ (SQL String QUERY)
 	*/
 	$strQuery = "
-		SELECT C.`id` AS id, C.`level` AS level, T.`name` AS name, C.`isActive` AS enable
-		FROM `CurricularArea` C
-		LEFT JOIN `TypeCourse` T ON C.`course_id`=T.`id`
-		WHERE C.`level`=UCASE(?) AND C.`grade`=? AND C.`isActive`=b'1' AND T.`isActive`=b'1';
+		SELECT C.`id` AS id, C.`level_id` AS level, T.`name` AS name, C.`is_active` AS enable
+		FROM `CurricularArea_` C
+		LEFT JOIN `TypeCourse_` T ON C.`course_id`=T.`id`
+		WHERE C.`level_id`=UCASE(?) AND C.`grade_id`=? AND C.`is_active`=b'1' AND T.`is_active`=b'1';
 	";
 
 	/**
